@@ -20,8 +20,11 @@ app.set("view engine","handlebars");
 
 
 app.post("/login",(req,res)=>{
-    let nombre = req.body.name; //undefined recupera el nombre
+    let nombre = req.body.userName; //undefined recupera el nombre
     let pass = req.body.password;//recupera la contraseña
+    console.log(nombre)
+    console.log(pass)
+
 
 
     let url = 'https://g5ab0d028fce44a-proyecto.adb.us-phoenix-1.oraclecloudapps.com/ords/proyecto/proyecto/login/'
@@ -46,17 +49,18 @@ app.post("/login",(req,res)=>{
             console.log(body)
            
            
-            res.send({
-                items:data
+            res.send(
+                data
         
-            })
+            )
 
             
         }else{
-            res.send({
-                items:"fallo"
+            res.send(
+                data
         
-            })
+        
+            )
         }
     });
 
@@ -75,7 +79,11 @@ app.post("/register",(req,res)=>{
     let ADMINApi=req.body.ADMIN
     let MAILApi=req.body.MAIL
 
-
+    console.log(userNameApi)
+    console.log(nameApi)
+    console.log(passwordApi)
+    console.log(ADMINApi)
+    console.log(MAILApi)
 
     let url = 'https://g5ab0d028fce44a-proyecto.adb.us-phoenix-1.oraclecloudapps.com/ords/proyecto/proyecto/register/'
         const datos= {
@@ -104,17 +112,17 @@ app.post("/register",(req,res)=>{
             const data = JSON.parse(body);
             
            
-            res.send({
-                items:data
+            res.send(
+                data
         
-            })
+            )
 
             
         }else{
-            res.send({
-                items:"fallo"
+            res.send(
+                data
         
-            })
+            )
         }
     });
 
@@ -144,18 +152,19 @@ app.get("/ipBlock",(req,res)=>{
         if (!err){
             const data = JSON.parse(body);
           
+            console.log(data)
            
-            res.send({
-                items:data
+            res.send(
+                data
         
-            })
+            )
 
             
         }else{
-            res.send({
-                items:"fallo"
+            res.send(
+                data
         
-            })
+            )
         }
     });
 
@@ -167,10 +176,10 @@ app.get("/ipBlock",(req,res)=>{
 
 /////////////
 
-app.post("/ipBlock",(req,res)=>{
+app.post("/ipBlock2",(req,res)=>{
 
     let ipUser=req.body.ip
-
+    console.log(ipUser)
     
     let url = 'https://g5ab0d028fce44a-proyecto.adb.us-phoenix-1.oraclecloudapps.com/ords/proyecto/proyecto/ipBlock/'
         const datos= {
