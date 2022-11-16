@@ -79,11 +79,7 @@ app.post("/register",(req,res)=>{
     let ADMINApi=req.body.ADMIN
     let MAILApi=req.body.MAIL
 
-    console.log(userNameApi)
-    console.log(nameApi)
-    console.log(passwordApi)
-    console.log(ADMINApi)
-    console.log(MAILApi)
+
 
     let url = 'https://g5ab0d028fce44a-proyecto.adb.us-phoenix-1.oraclecloudapps.com/ords/proyecto/proyecto/register/'
         const datos= {
@@ -109,18 +105,18 @@ app.post("/register",(req,res)=>{
     request(datos,(err,response,body)=>{
         
         if (!err){
-            const data = JSON.parse(body);
+           
             
            
             res.send(
-                data
+                body
         
             )
 
             
         }else{
             res.send(
-                data
+                body
         
             )
         }
