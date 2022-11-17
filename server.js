@@ -48,19 +48,22 @@ app.post("/login",(req,res)=>{
         if (!err){
             const data = JSON.parse(body);
            
-           if(data.code==="UserDefinedResourceError"){
-            res.send(
-                {Error:"Error"}
+            try {
+                         if(data.code==="UserDefinedResourceError"){
+                                 res.send(
+                                  {Error:"Error"}
         
-            )
+                                     )
 
 
-           }
-           
+                            }
+                 }
+                 catch(err) {
             res.send(
                 data
         
             )
+                 }
 
             
         }else{
