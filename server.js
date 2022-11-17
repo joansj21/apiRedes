@@ -48,7 +48,14 @@ app.post("/login",(req,res)=>{
         if (!err){
             const data = JSON.parse(body);
            
-           
+           if(data.code==="UserDefinedResourceError"){
+            res.send(
+                {Error:"Error"}
+        
+            )
+
+
+           }
            
             res.send(
                 data
@@ -159,7 +166,7 @@ app.get("/ipBlock",(req,res)=>{
         if (!err){
             const data = JSON.parse(body);
           
-            console.log(data)
+          
            
             res.send(
                 data
