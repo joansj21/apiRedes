@@ -22,8 +22,7 @@ app.set("view engine","handlebars");
 app.post("/login",(req,res)=>{
     let nombre = req.body.userName; //undefined recupera el nombre
     let pass = req.body.password;//recupera la contraseña
-    console.log(nombre)
-    console.log(pass)
+
     res.removeHeader('Transfer-Encoding');
     res.removeHeader('X-Powered-By');
 
@@ -48,7 +47,7 @@ app.post("/login",(req,res)=>{
         
         if (!err){
             const data = JSON.parse(body);
-            console.log(body)
+           
            
            
             res.send(
@@ -59,7 +58,10 @@ app.post("/login",(req,res)=>{
             
         }else{
             res.send(
-                data
+                {
+                    items:"fallo"
+            
+                }
         
         
             )
@@ -121,7 +123,10 @@ app.post("/register",(req,res)=>{
             
         }else{
             res.send(
-                body
+                {
+                    items:"fallo"
+            
+                }
         
             )
         }
@@ -164,7 +169,10 @@ app.get("/ipBlock",(req,res)=>{
             
         }else{
             res.send(
-                data
+                {
+                    items:"fallo"
+            
+                }
         
             )
         }
