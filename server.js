@@ -126,7 +126,7 @@ app.post("/register",(req,res)=>{
         if (!err){
            
             try {
-                if(data.code){
+                if(body.code){
 
                     res.send({
                         ERROR:"ERROR"
