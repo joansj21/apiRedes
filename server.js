@@ -125,7 +125,21 @@ app.post("/register",(req,res)=>{
         
         if (!err){
            
+            try {
+                if(data.code){
+
+                    res.send({
+                        ERROR:"ERROR"
+                    }
+                
+                    )
+                }
             
+            }
+
+            catch(err) {
+              
+              }
            
             res.send(
                 body
