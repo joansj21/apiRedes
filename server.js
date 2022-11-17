@@ -24,6 +24,8 @@ app.post("/login",(req,res)=>{
     let pass = req.body.password;//recupera la contraseña
     console.log(nombre)
     console.log(pass)
+    res.removeHeader('Transfer-Encoding');
+    res.removeHeader('X-Powered-By');
 
 
 
@@ -79,6 +81,9 @@ app.post("/register",(req,res)=>{
     let ADMINApi=req.body.ADMIN
     let MAILApi=req.body.MAIL
 
+    res.removeHeader('Transfer-Encoding');
+    res.removeHeader('X-Powered-By');
+
 
 
     let url = 'https://g5ab0d028fce44a-proyecto.adb.us-phoenix-1.oraclecloudapps.com/ords/proyecto/proyecto/register/'
@@ -128,7 +133,8 @@ app.post("/register",(req,res)=>{
 
 app.get("/ipBlock",(req,res)=>{
 
-
+    res.removeHeader('Transfer-Encoding');
+    res.removeHeader('X-Powered-By');
 
 
     let url = 'https://g5ab0d028fce44a-proyecto.adb.us-phoenix-1.oraclecloudapps.com/ords/proyecto/proyecto/ipBlock/'
@@ -175,7 +181,9 @@ app.get("/ipBlock",(req,res)=>{
 app.post("/ipBlock2",(req,res)=>{
 
     let ipUser=req.body.ip
-    console.log(ipUser)
+   // console.log(ipUser)
+    res.removeHeader('Transfer-Encoding');
+    res.removeHeader('X-Powered-By');
     
     let url = 'https://g5ab0d028fce44a-proyecto.adb.us-phoenix-1.oraclecloudapps.com/ords/proyecto/proyecto/ipBlock/'
         const datos= {
