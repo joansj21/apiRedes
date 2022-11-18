@@ -28,7 +28,7 @@ app.post("/login/:userName/:password/end",(req,res)=>{
     let pass= req.params.password;//recupera la contraseña
 
 
-    console.log("puto el que lo lea")
+  
 
     res.removeHeader('Transfer-Encoding');
     res.removeHeader('X-Powered-By');
