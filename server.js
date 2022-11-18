@@ -19,7 +19,7 @@ app.set("view engine","handlebars");
 
 
 
-app.post("/login/:userName/:password",(req,res)=>{
+app.post("/login/:userName/:password/end",(req,res)=>{
    
    // let nombre = req.body.userName; //undefined recupera el nombre
   //  let pass = req.body.password;//recupera la contraseña
