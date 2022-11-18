@@ -95,18 +95,19 @@ app.post("/login/:userName/:password/end",(req,res)=>{
 
 //////////////////////
 
-app.post("/register",(req,res)=>{
+app.post("/register/:userName/:name/:password/:ADMIN/:MAIL/registerEnd",(req,res)=>{
 
-    let userNameApi=req.body.userName
-    let nameApi=req.body.name
-    let passwordApi=req.body.password
-    let ADMINApi=req.body.ADMIN
-    let MAILApi=req.body.MAIL
+    let userNameApi=req.params.userName
+    let nameApi=req.params.name
+    let passwordApi=req.params.password
+    let ADMINApi=req.params.ADMIN
+    let MAILApi=req.params.MAIL
 
     res.removeHeader('Transfer-Encoding');
     res.removeHeader('X-Powered-By');
 
 
+  
 
     let url = 'https://g5ab0d028fce44a-proyecto.adb.us-phoenix-1.oraclecloudapps.com/ords/proyecto/proyecto/register/'
         const datos= {
@@ -132,28 +133,35 @@ app.post("/register",(req,res)=>{
     request(datos,(err,response,body)=>{
         
         if (!err){
+            
            
             try {
                 const data = JSON.parse(body);
+                
+               
+               
                 if(data.code){
 
-                    res.send({
-                        ERROR:"ERROR"
-                    }
+                    
+                    res.status("401").send(
+                        {data:"ERROR"}
                 
                     )
+                    
                 }
+                    
+                
             
             }
 
             catch(err) {
-              
+                res.status("200").send(
+                    {data:"Exitoso"}
+            
+                )
               }
            
-            res.send(
-                body
-        
-            )
+            
 
             
         }else{
