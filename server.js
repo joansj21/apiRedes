@@ -19,9 +19,17 @@ app.set("view engine","handlebars");
 
 
 
-app.post("/login",(req,res)=>{
-    let nombre = req.body.userName; //undefined recupera el nombre
-    let pass = req.body.password;//recupera la contraseña
+app.post("/login/:userName/:password",(req,res)=>{
+   
+   // let nombre = req.body.userName; //undefined recupera el nombre
+  //  let pass = req.body.password;//recupera la contraseña
+
+    let nombre = req.params.userName; //undefined recupera el nombre
+    let pass= req.params.password;//recupera la contraseña
+
+
+    console.log(nombre)
+    console.log(pass)
 
     res.removeHeader('Transfer-Encoding');
     res.removeHeader('X-Powered-By');
@@ -50,10 +58,10 @@ app.post("/login",(req,res)=>{
            
             try {
                          if(data.code==="UserDefinedResourceError"){
-                                 res.send(
-                                  {Error:"Error"}
+                                 
+                                  data={Error:"Error"}
         
-                                     )
+                                     
 
 
                             }
